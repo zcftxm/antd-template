@@ -5,6 +5,8 @@ import {
   Input,
   InputNumber,
   Button,
+  Breadcrumb,
+  PageHeader,
   Switch,
   Radio,
   Checkbox,
@@ -18,6 +20,7 @@ import {
   Tabs,
   Icon,
   Menu,
+  Drawer,
   Popover,
   Tooltip,
   Popconfirm,
@@ -30,6 +33,8 @@ Vue.use(Layout)
 Vue.use(Input)
 Vue.use(InputNumber)
 Vue.use(Button)
+Vue.use(Breadcrumb)
+Vue.use(PageHeader)
 Vue.use(Switch)
 Vue.use(Radio)
 Vue.use(Checkbox)
@@ -43,6 +48,7 @@ Vue.use(Table)
 Vue.use(Tabs)
 Vue.use(Icon)
 Vue.use(Menu)
+Vue.use(Drawer)
 Vue.use(Popover)
 Vue.use(Tooltip)
 Vue.use(Popconfirm)
