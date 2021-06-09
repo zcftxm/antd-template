@@ -71,7 +71,6 @@ export default {
   },
   computed: {
     rootSubmenuKeys: vm => {
-      console.log(vm)
       const keys = []
       vm.menu.forEach(item => keys.push(item.path))
       return keys
@@ -87,7 +86,6 @@ export default {
         this.openKeys = []
       } else {
         this.openKeys = this.cachedOpenKeys
-        console.log(this.cachedOpenKeys, this.openKeys)
       }
     },
     $route: function () {
@@ -114,9 +112,8 @@ export default {
       this.selectedKeys = selectedKeys
       this.$emit('select', { item, key, selectedKeys })
     },
-    updateMenu () {
+    updateMenu () { 
       const routes = this.$route.matched.concat()
-      console.log(this.$route.matched.concat())
       const { hidden } = this.$route.meta
       if (routes.length >= 3 && hidden) {
         routes.pop()
@@ -130,7 +127,6 @@ export default {
           openKeys.push(item.path)
         })
       }
-
       this.collapsed ? (this.cachedOpenKeys = openKeys) : (this.openKeys = openKeys)
     },
 

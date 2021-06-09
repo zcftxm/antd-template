@@ -38,6 +38,12 @@ export default {
       data,
     };
   },
+  mounted() {
+    console.log(this.$route)
+  },
+  methods: {
+    
+  }
 };
 </script>
 <style lang="less" scoped>

@@ -1,20 +1,21 @@
 <template>
   <a-layout style="min-height: 100vh">
+    <div v-if="device == 'mobile'">
       <a-drawer
-        v-if="device == 'mobile'"
         placement="left"
         wrapClassName="drawer-sider"
         :closable="false"
         :visible="collapsed"
-        :destroyOnClose="true"
         @close="drawerClose"
       >
         <side-bar @select="menuSelect"></side-bar>
       </a-drawer>
-      <side-bar v-else-if="isSideBar" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
+    </div>
+    <side-bar v-else-if="menuType == 'sideBar'" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
     <a-layout>
-      <page-nav @toggle="toggleSidebar" :collapsed="collapsed" ></page-nav>
+      <page-nav @toggle="toggleSidebar" :menuType="menuType" :collapsed="collapsed" ></page-nav>
       <a-layout-content>
+        {{collapsed}} {{device == 'mobile'}}{{menuType}}
         <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
@@ -46,6 +47,7 @@ export default {
   computed: {
     ...mapState({
       device: (state) => state.system.device,
+      menuType: (state) => state.system.menuType
     }),
   },
   watch: {

@@ -1,6 +1,6 @@
 <template>
   <a-layout-header class="header" style="background: #fff; padding: 0">
-    <div class="page-nav" v-if="mode != 'SiderBar'">
+    <div class="page-nav" v-if="menuType != 'sideBar'">
       <div class="page-nav__left">
         <div class="logo" />
         <!-- <a-menu
@@ -62,9 +62,9 @@ import sMenu from '@/components/Menu';
 export default {
   name: "PageNav",
   props: {
-    mode: {
+    menuType: {
       type: String,
-      default: "SiderBar",
+      default: "sideBar",
     },
     collapsed: {
       type: Boolean,

@@ -7,7 +7,8 @@
     :trigger="null"
   >
     <div class="logo"></div>
-    <Menu></Menu>
+    <span style="color:white">{{collapsed}}</span>
+    <Menu :collapsed="collapsed"></Menu>
     <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="['1']" @select="onSelect">
       <a-sub-menu>
         <span slot="title"><a-icon type="user" />subnav 1</span>

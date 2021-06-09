@@ -16,17 +16,20 @@ export default new VueRouter({
   },{
     path: '/home',
     name: 'home',
-    component: () => import('@/view/home'),
+    component: () => import(/* webpackChunkName: "home" */ '@/view/home'),
+    meta: {
+      title: '打好后'
+    },
     children: [
       {
         path: '/home/r',
         name: 'homer',
-        component: () => import('@/view/homer'),
+        component: () => import(/* webpackChunkName: "home" */ '@/view/homer'),
         children: [
           {
             path: '/home/s',
             name: 'homers',
-            component: () => import('@/view/homers')
+            component: () => import(/* webpackChunkName: "home" */ '@/view/homers')
           }
         ]
       }

@@ -4,6 +4,7 @@ const system = {
   state: {
     device: 'desktop',
     sidebar: true,
+    menuType: 'topMenu'  // topMenu || sideBar
   },
   mutations: {
     CHANGE_DEVIDE: (state, device) => {
