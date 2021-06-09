@@ -1,9 +1,9 @@
 <template>
   <a-layout-header class="header" style="background: #fff; padding: 0">
-    <div class="page-nav" v-if="mode == 'SiderBar'">
+    <div class="page-nav" v-if="mode != 'SiderBar'">
       <div class="page-nav__left">
         <div class="logo" />
-        <a-menu
+        <!-- <a-menu
           theme="dark"
           mode="horizontal"
           :default-selected-keys="['2']"
@@ -18,7 +18,8 @@
           <a-menu-item key="3">
             nav 3
           </a-menu-item>
-        </a-menu>
+        </a-menu> -->
+        <s-menu mode="horizontal" :menu="menus"></s-menu>
       </div>
       <div class="page-nav__right">用户</div>
     </div>
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import sMenu from '@/components/Menu';
 export default {
   name: 'PageNav',
   props: {
@@ -51,6 +53,7 @@ export default {
       collapsed: false
     }
   },
+  components: {sMenu},
   methods: {
     toggleSidebar() {
       this.$emit('toggle')

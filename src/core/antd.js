@@ -16,6 +16,7 @@ import {
   Row,
   Col,
   Modal,
+  Spin,
   Table,
   Tabs,
   Icon,
@@ -44,6 +45,7 @@ Vue.use(Form)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Modal)
+Vue.use(Spin)
 Vue.use(Table)
 Vue.use(Tabs)
 Vue.use(Icon)

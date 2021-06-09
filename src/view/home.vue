@@ -11,7 +11,7 @@
       >
         <side-bar @select="menuSelect"></side-bar>
       </a-drawer>
-      <side-bar v-else-if="isSideBar" :collapsed="collapsed"></side-bar>
+      <side-bar v-else-if="isSideBar" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
     <a-layout>
       <page-nav @toggle="toggleSidebar"></page-nav>
       <a-layout-content>
@@ -35,9 +35,15 @@ export default {
   name: 'home',
   data() {
     return {
-      isSideBar: false,
+      isSideBar: true,
       collapsed: false
     }
+  },
+  async mounted() {
+     let data = await this.$axios.get({
+      url: "web/api/news/init"
+    })
+    console.log(data)
   },
   computed: {
     ...mapState({
