@@ -25,7 +25,9 @@ import {
   Tooltip,
   Popconfirm,
   message,
-  notification
+  notification,
+  list ,
+  avatar 
 } from 'ant-design-vue'
 
 Vue.use(ConfigProvider)
@@ -52,8 +54,10 @@ Vue.use(Drawer)
 Vue.use(Popover)
 Vue.use(Tooltip)
 Vue.use(Popconfirm)
+Vue.use(list)
 Vue.use(message)
 Vue.use(notification)
+Vue.use(avatar)
 
 Vue.prototype.$confirm = Modal.confirm
 Vue.prototype.$message = message
