@@ -12,19 +12,25 @@ const _axios = axios.create({
 _axios.interceptors.request.use(function(config) {
   config.headers['Content-Type'] = 'application/json;charset=UTF-8';
   console.log(config)
+  window.vm.$loading.show()
   return config
 }, function(error) {
+  window.vm.$loading.hide()
+  window.vm.$message.error(error)
   return Promise.reject(error)
 })
 // 响应处理
 _axios.interceptors.response.use(function(response) {
   // console.log(response)
+  window.vm.$loading.hide()
   return {
     data: response.data,
     status: response.status,
     message: response.statusText
   }
 }, function(error) {
+  window.vm.$loading.hide()
+  window.vm.$message.error(error)
   return Promise.reject(error)
 })
 

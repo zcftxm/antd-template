@@ -3,39 +3,34 @@
     class="sider"
     width="256px"
     v-model="collapsed"
+    :collapsible="true"
     :trigger="null"
   >
     <div class="logo"></div>
-    <a-menu
-      theme="dark"
-      mode="inline"
-      :default-selected-keys="['1']"
-      @select="onSelect"
-      :open-keys="openKeys"
-      @openChange="onOpenChange"
-    >
-      <a-sub-menu key="sub1">
-        <span slot="title"><a-icon type="user" /><span>subnav 1</span></span>
-        <a-menu-item key="1"> option1 </a-menu-item>
-        <a-menu-item key="2"> option2 </a-menu-item>
-        <a-menu-item key="3"> option3 </a-menu-item>
-        <a-menu-item key="4"> option4 </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key="sub2">
-        <span slot="title"><a-icon type="user" /><span>subnav 1</span></span>
-        <a-menu-item key="5"> option1 </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key="sub3">
-        <span slot="title"><a-icon type="mail" /><span>Navigation One</span></span>
-        <a-menu-item key="6">
-          Option 5
+    <Menu></Menu>
+    <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="['1']" @select="onSelect">
+      <a-sub-menu>
+        <span slot="title"><a-icon type="user" />subnav 1</span>
+        <a-menu-item key="1">
+          option1
+        </a-menu-item>
+        <a-menu-item key="2">
+          option2
+        </a-menu-item>
+        <a-menu-item key="3">
+          option3
+        </a-menu-item>
+        <a-menu-item key="4">
+          option4
         </a-menu-item>
       </a-sub-menu>
-    </a-menu>
+    </!--> -->
+
   </a-layout-sider>
 </template>
 
 <script>
+import Menu from '@/components/Menu';
 export default {
   name: "SideBar",
   props: {
@@ -50,6 +45,7 @@ export default {
       openKeys: [],
     }
   },
+  components: { Menu },
   methods: {
     onSelect() {
       // if() {

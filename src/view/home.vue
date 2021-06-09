@@ -1,17 +1,17 @@
 <template>
   <a-layout style="min-height: 100vh">
-    <a-drawer
-      v-if="device == 'mobile'"
-      placement="left"
-      wrapClassName="drawer-sider"
-      :closable="false"
-      :visible="collapsed"
-      :destroyOnClose="true"
-      @close="drawerClose"
-    >
-      <side-bar @select="menuSelect"></side-bar>
-    </a-drawer>
-    <side-bar v-else-if="isSideBar" :collapsed="collapsed"></side-bar>
+      <a-drawer
+        v-if="device == 'mobile'"
+        placement="left"
+        wrapClassName="drawer-sider"
+        :closable="false"
+        :visible="collapsed"
+        :destroyOnClose="true"
+        @close="drawerClose"
+      >
+        <side-bar @select="menuSelect"></side-bar>
+      </a-drawer>
+      <side-bar v-else-if="isSideBar" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
     <a-layout>
       <page-nav @toggle="toggleSidebar" :collapsed="collapsed" ></page-nav>
       <a-layout-content>
@@ -34,8 +34,14 @@ export default {
   data() {
     return {
       isSideBar: true,
-      collapsed: false,
-    };
+      collapsed: false
+    }
+  },
+  async mounted() {
+     let data = await this.$axios.get({
+      url: "web/api/news/init"
+    })
+    console.log(data)
   },
   computed: {
     ...mapState({
