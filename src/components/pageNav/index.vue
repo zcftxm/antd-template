@@ -1,5 +1,5 @@
 <template>
-  <a-layout-header class="header" style="background: #fff; padding: 0">
+  <a-layout-header class="header" style="background: #fff; padding: 0;z-index:1">
     <div class="page-nav" v-if="menuType != 'sideBar'">
       <div class="page-nav__left">
         <div class="logo" />

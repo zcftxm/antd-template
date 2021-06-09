@@ -73,5 +73,6 @@ export default {
 }
 .sider{
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  z-index: 2;
 }
 </style>
