@@ -1,25 +1,16 @@
-
-
 const system = {
   state: {
-    device: 'desktop',
-    sidebar: true,
-    menuType: 'sideBar'  // topMenu || sideBar
+    device: 'desktop',  
+    menuType: 'topMenu'  // topMenu || sideBar   控制横竖菜单
   },
   mutations: {
     CHANGE_DEVIDE: (state, device) => {
       state.device = device
-    },
-    CHANGE_SIDEBAR: (state, type) => {
-      state.sidebar = type
     }
   },
   actions: {
     changeDevice({ commit }, type) {
       commit('CHANGE_DEVIDE', type)
-    },
-    changeSidebar({ commit }, type) {
-      commit('CHANGE_SIDEBAR', type)
     }
   }
 }

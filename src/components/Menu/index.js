@@ -8,42 +8,7 @@ export default {
       type: Array,
       required: true,
       default: function() {
-        return [
-          {
-            name: 'home',
-            path: '/home',
-            hideChildrenInMenu: false,
-            meta: {
-              title: '标题一',
-              target: '',
-              icon: 'form'
-            },
-            children: [
-              {
-                name: 'homer',
-                path: '/home/r',
-                hideChildrenInMenu: false,
-                meta: {
-                  title: '子标题一',
-                  target: '',
-                  icon: ''
-                },
-                children: [
-                  {
-                    name: 'homers',
-                    path: '/home/s',
-                    hideChildrenInMenu: false,
-                    meta: {
-                      title: '孙标题一',
-                      target: '',
-                      icon: ''
-                    },
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+        return []
       }
     },
     theme: {

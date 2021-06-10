@@ -1,5 +1,4 @@
-
-
+// 页面基础路由
 const baseRoutes = [{
   path: '/',
   redirect: '/home'

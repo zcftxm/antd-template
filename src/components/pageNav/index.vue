@@ -3,19 +3,15 @@
     <div class="page-nav" v-if="menuType != 'sideBar'">
       <div class="page-nav__left">
         <div class="logo" />
-        <!-- <a-menu
-          theme="dark"
-          mode="horizontal"
-          :default-selected-keys="['2']"
-          :style="{ lineHeight: '64px' }"
-        >
-          <a-menu-item key="mail">
-            <a-icon type="mail" />Navigation One
-          </a-menu-item>
-        </a-menu> -->
-        <s-menu mode="horizontal" :menu="menus"></s-menu>
+        <s-menu v-if="device != 'mobile'" mode="horizontal" :menu="menu"></s-menu>
+        <a-icon
+          v-else
+          class="trigger"
+          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+          @click="toggleSidebar"
+          :style="{ fontSize: '20px' }"
+        ></a-icon>
       </div>
-      <!-- <div class="page-nav__right">用户</div> -->
       <div class="account-avatar">
         <a-avatar
           :size="40"
@@ -49,10 +45,6 @@
         <span class="user-name">Michael</span>
         <a-icon type="alipay-circle" :style="{ fontSize: '20px' }" />
       </div>
-      <!-- <a-icon
-        class="trigger"
-        :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-      ></a-icon> -->
     </div>
   </a-layout-header>
 </template>
@@ -70,6 +62,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    menu: {
+      type: Array, 
+      default: function() {
+        return []
+      }
+    },
+    device: {
+      type: String,
+      default: "desktop",
+    },
   },
   data() {
     return {
@@ -86,6 +88,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.logo {
+  width: 100px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+  flex-shrink: 0;
+}
 .flex {
   height: 100%;
   display: flex;
@@ -104,6 +113,16 @@ export default {
     padding: 0 20px;
     color: white;
   }
+}
+.page-nav__left {
+  display: flex;
+  align-items: center;
+  flex: 1 1 calc(~"100vw - 220px");
+  width: calc(~"100vw - 220px");
+}
+.ant-menu.ant-menu-horizontal {
+  flex: 1 1 calc(~"100vw - 320px");
+  width: calc(~"100vw - 320px");
 }
 .page-nav__right {
   width: 100px;

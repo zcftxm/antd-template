@@ -1,11 +1,8 @@
 <template>
   <div>
     <page-header></page-header>
-
     <slot>
-      <router-view>
-      
-      </router-view>
+      <router-view></router-view>
     </slot>
   </div>
 </template>

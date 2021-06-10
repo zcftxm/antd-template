@@ -8,7 +8,7 @@
 
 <script>
 import { AppDeviceEnquire } from '@/utils/mixins';
-import { mapActions, mapState } from 'vuex';
+import { mapActions } from 'vuex';
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
 export default {
   name: 'App',
@@ -20,11 +20,6 @@ export default {
   mixins: [AppDeviceEnquire],
   mounted() {
     this.getMenus()
-  },
-  computed: {
-    ...mapState({
-      addRoutes: state => state.permission.addRoutes
-    })
   },
   methods: {
     ...mapActions(['getMenus'])

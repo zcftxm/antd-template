@@ -12,17 +12,14 @@
 <script>
 export default {
   name: "PageHeader",
-  // props: {}
   data() {
     return {
       titleList: [],
-      detail: "",
-      // collapsed: false
+      detail: ""
     };
   },
   watch: {
     $route(to) {
-      // console.log(to);
       let list = [];
       this.detail = to.meta.title;
       to.matched.forEach((item) => {

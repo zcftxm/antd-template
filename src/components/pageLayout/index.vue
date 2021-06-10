@@ -15,9 +15,7 @@
     <a-layout>
       <page-header @toggle="toggleSidebar"></page-header>
       <a-layout-content>
-        <router-view>
-
-        </router-view>
+        <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         Ant Design ©2018 Created by Ant UED
@@ -32,7 +30,7 @@ import PageHeader from '@/components/pageHeader';
 // import PageView from '@/components/pageView';
 import SideBar from '@/components/sideBar';
 export default {
-  name: 'home',
+  name: 'pageLayout',
   data() {
     return {
       isSideBar: true,

@@ -5,15 +5,12 @@ export const AppDeviceEnquire = {
     deviceEnquire(deviceType => {
       switch(deviceType) {
         case DEVICE_TYPE.DESKTOP:
-          this.$store.dispatch('changeSidebar', true)
           this.$store.dispatch('changeDevice', 'desktop')
           break;
         case DEVICE_TYPE.TABLET:
-        this.$store.dispatch('changeSidebar', false)
         this.$store.dispatch('changeDevice', 'tablet')
           break;
         case DEVICE_TYPE.MOBILE:
-        this.$store.dispatch('changeSidebar', false)
         this.$store.dispatch('changeDevice', 'mobile')
           break;
       }

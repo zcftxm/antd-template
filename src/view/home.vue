@@ -13,7 +13,7 @@
     </div>
     <side-bar v-else-if="menuType == 'sideBar'" :menu="routes" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
     <a-layout>
-      <page-nav @toggle="toggleSidebar" :menu="routes" :menuType="menuType" :collapsed="collapsed" ></page-nav>
+      <page-nav @toggle="toggleSidebar" :menu="routes" :menuType="menuType" :device="device" :collapsed="collapsed" ></page-nav>
       <a-layout-content>
         <router-view></router-view>
       </a-layout-content>
@@ -52,6 +52,7 @@ export default {
   },
   watch: {
     device: function (val) {
+      // 监听设备变化  改变菜单收缩或放开
       if (val == "tablet") {
         this.collapsed = true;
       } else {
@@ -78,8 +79,14 @@ export default {
 </script>
 <style lang="less" scoped>
 .ant-layout{
-  min-width: 576px;
+  min-width:300px;
 }
+.ant-drawer.drawer-sider {
+  /deep/.ant-drawer-body {
+    padding: 0;
+  }
+}
+
 </style>
 
 
