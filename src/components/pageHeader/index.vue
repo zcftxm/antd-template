@@ -50,15 +50,15 @@ export default {
   height: 70px;
   padding-left: 20px;
   display: flex;
-  // align-items: center;
   flex-direction: column;
-  align-items: end;
   justify-content: center;
   .ant-breadcrumb {
     font-size: 16px;
+    text-align: left;
   }
   .page-detail {
     font-size: 24px;
+    text-align: left;
   }
 }
 </style>
