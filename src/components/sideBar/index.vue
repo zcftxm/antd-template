@@ -7,25 +7,7 @@
     :trigger="null"
   >
     <div class="logo"></div>
-    <span style="color:white">{{collapsed}}</span>
-    <Menu :collapsed="collapsed"></Menu>
-    <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="['1']" @select="onSelect">
-      <a-sub-menu>
-        <span slot="title"><a-icon type="user" />subnav 1</span>
-        <a-menu-item key="1">
-          option1
-        </a-menu-item>
-        <a-menu-item key="2">
-          option2
-        </a-menu-item>
-        <a-menu-item key="3">
-          option3
-        </a-menu-item>
-        <a-menu-item key="4">
-          option4
-        </a-menu-item>
-      </a-sub-menu>
-    </!--> -->
+    <Menu :menu="menu" :collapsed="collapsed"></Menu>
 
   </a-layout-sider>
 </template>
@@ -39,6 +21,12 @@ export default {
       type: Boolean,
       default: false,
     },
+    menu: {
+      type: Array, 
+      default: function() {
+        return []
+      }
+    }
   },
   data(){
     return{
@@ -49,9 +37,7 @@ export default {
   components: { Menu },
   methods: {
     onSelect() {
-      // if() {
       this.$emit("select");
-      // }
     },
     onOpenChange(openKeys) {
       const latestOpenKey = openKeys.find(key => this.openKeys.indexOf(key) === -1);

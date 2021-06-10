@@ -11,7 +11,6 @@ const _axios = axios.create({
 // 请求处理
 _axios.interceptors.request.use(function(config) {
   config.headers['Content-Type'] = 'application/json;charset=UTF-8';
-  console.log(config)
   window.vm.$loading.show()
   return config
 }, function(error) {
@@ -21,7 +20,6 @@ _axios.interceptors.request.use(function(config) {
 })
 // 响应处理
 _axios.interceptors.response.use(function(response) {
-  // console.log(response)
   window.vm.$loading.hide()
   return {
     data: response.data,
