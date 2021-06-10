@@ -1,14 +1,34 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <a-config-provider :locale="locale">
+    <div id="app">
+      <router-view></router-view>
+    </div>
+  </a-config-provider>
 </template>
 
 <script>
 import { AppDeviceEnquire } from '@/utils/mixins';
+import { mapActions, mapState } from 'vuex';
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
 export default {
   name: 'App',
+  data() {
+    return {
+      locale: zhCN,
+    }
+  },
   mixins: [AppDeviceEnquire],
+  mounted() {
+    this.getMenus()
+  },
+  computed: {
+    ...mapState({
+      addRoutes: state => state.permission.addRoutes
+    })
+  },
+  methods: {
+    ...mapActions(['getMenus'])
+  }
 }
 </script>
 

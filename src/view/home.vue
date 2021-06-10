@@ -8,14 +8,13 @@
         :visible="collapsed"
         @close="drawerClose"
       >
-        <side-bar @select="menuSelect"></side-bar>
+        <side-bar :menu="routes" @select="menuSelect"></side-bar>
       </a-drawer>
     </div>
-    <side-bar v-else-if="menuType == 'sideBar'" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
+    <side-bar v-else-if="menuType == 'sideBar'" :menu="routes" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
     <a-layout>
-      <page-nav @toggle="toggleSidebar" :menuType="menuType" :collapsed="collapsed" ></page-nav>
+      <page-nav @toggle="toggleSidebar" :menu="routes" :menuType="menuType" :collapsed="collapsed" ></page-nav>
       <a-layout-content>
-        {{collapsed}} {{device == 'mobile'}}{{menuType}}
         <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
@@ -46,8 +45,9 @@ export default {
   },
   computed: {
     ...mapState({
-      device: (state) => state.system.device,
-      menuType: (state) => state.system.menuType
+      device: state => state.system.device,
+      menuType: state => state.system.menuType,
+      routes: state => state.permission.addRoutes
     }),
   },
   watch: {

@@ -11,7 +11,6 @@ import loading from '@/components/Loading';
 Vue.component('draggable', draggable)
 Vue.config.productionTip = false
 
-
 Vue.use(loading)
 window.vm = new Vue({
   store,
