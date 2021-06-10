@@ -26,10 +26,18 @@ const baseRoutes = [{
           meta:{
             title:'项目3'
           },
-        }
+        },
       ]
     }
   ]
-}]
+},{
+  path: '*',
+  name: 'homerss',
+  component: () => import('@/view/404'),
+  meta:{
+    title:'项目3s'
+  },
+}
+]
 
 export default baseRoutes

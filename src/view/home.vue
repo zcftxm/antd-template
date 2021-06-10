@@ -78,7 +78,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .ant-layout{
-  min-width: 576px;
+  min-width: 300px;
 }
 </style>
 
