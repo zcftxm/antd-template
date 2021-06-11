@@ -1,5 +1,5 @@
 <template>
-  <div class="example" :style="{ height: screenHeight + 'px' }">
+  <div class="example">
     <a-spin size="large" tip="Loading...">
       <div class="spin-content">该页面不存在</div>
     </a-spin>
@@ -7,34 +7,21 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      screenHeight: window.innerHeight,
-    };
-  },
-  mounted() {
-    const that = this;
-    window.onresize = () => {
-      return (() => {
-        that.screenHeight = window.innerHeight;
-      })();
-    };
-  },
-};
+export default {};
 </script>
 
 <style lang="less" scoped>
 .example {
+  height: 100vh;
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  .spin-content{
-      background: rgba(0, 0, 0, 0.05);
-      font-size: 24px;
+  .spin-content {
+    background: rgba(0, 0, 0, 0.05);
+    font-size: 24px;
   }
   //   margin-bottom: 20px;
   //   padding: 30px 50px;

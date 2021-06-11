@@ -1,9 +1,16 @@
 <template>
-  <a-layout-header class="header" style="background: #fff; padding: 0;z-index:1">
+  <a-layout-header
+    class="header"
+    style="background: #fff; padding: 0; z-index: 1"
+  >
     <div class="page-nav" v-if="menuType != 'sideBar'">
       <div class="page-nav__left">
-        <div class="logo" />
-        <s-menu v-if="device != 'mobile'" mode="horizontal" :menu="menu"></s-menu>
+        <logo :image='src' />
+        <s-menu
+          v-if="device != 'mobile'"
+          mode="horizontal"
+          :menu="menu"
+        ></s-menu>
         <a-icon
           v-else
           class="trigger"
@@ -12,14 +19,7 @@
           :style="{ fontSize: '20px' }"
         ></a-icon>
       </div>
-      <div class="account-avatar">
-        <a-avatar
-          :size="40"
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        />
-        <span class="user-name">Michael</span>
-        <a-icon type="alipay-circle" :style="{ fontSize: '20px' }" />
-      </div>
+      <userInfo :name="name" :src="src" class="account-avatar" />
     </div>
     <div class="flex" v-else>
       <div>
@@ -36,21 +36,15 @@
           spin
         />
       </div>
-      <div class="account-avatar">
-        <a-avatar
-          :size="40"
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          :style="{color:'white' }" 
-        />
-        <span class="user-name">Michael</span>
-        <a-icon type="alipay-circle" :style="{ fontSize: '20px' }" />
-      </div>
+      <userInfo :name="name" :src="src" />
     </div>
   </a-layout-header>
 </template>
 
 <script>
-import sMenu from '@/components/Menu';
+import userInfo from "@/components/userInfo";
+import sMenu from "@/components/Menu";
+import logo from "@/components/logo";
 export default {
   name: "PageNav",
   props: {
@@ -63,10 +57,10 @@ export default {
       default: false,
     },
     menu: {
-      type: Array, 
-      default: function() {
-        return []
-      }
+      type: Array,
+      default: function () {
+        return [];
+      },
     },
     device: {
       type: String,
@@ -75,10 +69,12 @@ export default {
   },
   data() {
     return {
+      name: "Michael",
+      src: require("../../assets/logo.png"),
       // collapsed: false
     };
   },
-  components: {sMenu},
+  components: { sMenu, userInfo, logo },
   methods: {
     toggleSidebar() {
       this.$emit("toggle");
@@ -88,13 +84,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.logo {
-  width: 100px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-  flex-shrink: 0;
-}
 .flex {
   height: 100%;
   display: flex;
@@ -108,9 +97,6 @@ export default {
   align-items: center;
   background: #001529;
   .account-avatar {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
     color: white;
   }
 }
@@ -131,18 +117,6 @@ export default {
 }
 .trigger {
   margin-left: 20px;
-}
-.account-avatar {
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  .user-name {
-    display: inline-block;
-    padding: 0 10px;
-  }
-  .anticon {
-    padding: 0 5px;
-  }
 }
 </style>
 

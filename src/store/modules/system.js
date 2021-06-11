@@ -6,7 +6,10 @@ const system = {
   mutations: {
     CHANGE_DEVIDE: (state, device) => {
       state.device = device
-    }
+    },
+    CHANGE_MENUTYPE: (state, menuType) => {
+      state.menuType = menuType
+    },
   },
   actions: {
     changeDevice({ commit }, type) {
