@@ -5,12 +5,10 @@
 </template>
 <script>
 export default {
+  name: "PageLogo",
   props: {
-    image: {
-      type: String,
-      required: true,
-    },
-  },
+    image: String
+  }
 };
 </script>
 <style lang="less" scoped>

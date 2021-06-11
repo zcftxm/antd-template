@@ -5,23 +5,23 @@ const baseRoutes = [{
 }, {
   path: '/home',
   name: 'home',
-  component: () => import('@/view/home'),
+  component: () => import('@/view/pageLayout'),
   meta: {
-    title: '项目已'
+    title: '项目1'
   },
   children: [
     {
-      path: '/home/r',
-      name: 'homer',
-      component: () => import('@/view/homer'),
+      path: '/home/1',
+      name: 'home1',
+      component: () => import('@/view/testOne'),
       meta: {
         title: '项目2'
       },
       children: [
         {
-          path: '/home/s',
-          name: 'homers',
-          component: () => import('@/view/homers'),
+          path: '/home/2',
+          name: 'home2',
+          component: () => import('@/view/testTwo'),
           meta: {
             title: '项目3'
           },
@@ -29,12 +29,12 @@ const baseRoutes = [{
       ]
     }
   ]
-},{
+}, {
   path: '/404',
   name: '404',
   component: () => import('@/view/404'),
   meta: {
-    title: '项目3s'
+    title: '404'
   }
 }]
 

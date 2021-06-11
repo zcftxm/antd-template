@@ -28,8 +28,8 @@ import {
   Popconfirm,
   message,
   notification,
-  list ,
-  avatar 
+  list,
+  avatar
 } from 'ant-design-vue'
 
 Vue.use(ConfigProvider)

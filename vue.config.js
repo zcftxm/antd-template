@@ -10,6 +10,16 @@ module.exports = {
       ] 
     }
   },
+  chainWebpack: config => {
+    config.module
+     .rule('eslint')
+     .use('eslint-loader')
+     .loader('eslint-loader')
+     .tap(options => {
+     options.fix = true
+     return options
+     })
+    },
   devServer: {
     // development server port 8000
     port: 8000,

@@ -5,21 +5,21 @@
   >
     <div class="page-nav" v-if="menuType != 'sideBar'">
       <div class="page-nav__left">
-        <logo :image='src' />
-        <s-menu
+        <page-logo />
+        <Menu
           v-if="device != 'mobile'"
           mode="horizontal"
           :menu="menu"
-        ></s-menu>
+        ></Menu> 
         <a-icon
           v-else
           class="trigger"
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="toggleSidebar"
-          :style="{ fontSize: '20px' }"
+          :style="{ fontSize: '20px', color: '#fff' }"
         ></a-icon>
       </div>
-      <userInfo :name="name" :src="src" class="account-avatar" />
+      <user-info :name="name" :src="src" class="account-avatar" />
     </div>
     <div class="page-flex" v-else>
       <div>
@@ -29,12 +29,6 @@
           @click="toggleSidebar"
           :style="{ fontSize: '20px' }"
         ></a-icon>
-        <a-icon
-          class="trigger"
-          :style="{ fontSize: '20px' }"
-          type="sync"
-          spin
-        />
       </div>
       <userInfo :name="name" :src="src" />
     </div>
@@ -42,44 +36,43 @@
 </template>
 
 <script>
-import userInfo from "@/components/userInfo";
-import sMenu from "@/components/Menu";
-import logo from "@/components/logo";
+import UserInfo from "@/components/UserInfo";
+import Menu from "@/components/Menu";
+import PageLogo from "@/components/PageLogo";
 export default {
   name: "PageNav",
   props: {
     menuType: {
       type: String,
-      default: "sideBar",
+      default: "sideBar"
     },
     collapsed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     menu: {
       type: Array,
-      default: function () {
+      default: function() {
         return [];
-      },
+      }
     },
     device: {
       type: String,
-      default: "desktop",
-    },
+      default: "desktop"
+    }
   },
   data() {
     return {
       name: "Michael",
-      src: require("../../assets/logo.png"),
-      // collapsed: false
+      src: require("../../assets/logo.png")
     };
   },
-  components: { sMenu, userInfo, logo },
+  components: { Menu, UserInfo, PageLogo },
   methods: {
     toggleSidebar() {
       this.$emit("toggle");
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -100,7 +93,7 @@ export default {
   .flex-auto(space-between);
   background: #001529;
   .account-avatar {
-    .flex-align('center');
+    .flex-align("center");
     padding: 0 20px;
     color: white;
   }

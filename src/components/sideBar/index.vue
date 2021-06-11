@@ -6,49 +6,50 @@
     :collapsible="true"
     :trigger="null"
   >
-    <logo :image='src' class="sideLogo"/>
+    <page-logo class="sideLogo"/>
     <Menu :menu="menu" :collapsed="collapsed"></Menu>
   </a-layout-sider>
 </template>
 
 <script>
-import Menu from '@/components/Menu';
-import logo from "@/components/logo";
+import Menu from "@/components/Menu";
+import PageLogo from "@/components/PageLogo";
 export default {
   name: "SideBar",
   props: {
     collapsed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     menu: {
-      type: Array, 
+      type: Array,
       default: function() {
-        return []
+        return [];
       }
     }
   },
-  data(){
-    return{
-      rootSubmenuKeys: ['sub1', 'sub2', 'sub3'],
-      openKeys: [],
-      src: require("../../assets/logo.png"),
-    }
+  data() {
+    return {
+      rootSubmenuKeys: ["sub1", "sub2", "sub3"],
+      openKeys: []
+    };
   },
-  components: { Menu,logo },
+  components: { Menu, PageLogo },
   methods: {
     onSelect() {
       this.$emit("select");
     },
     onOpenChange(openKeys) {
-      const latestOpenKey = openKeys.find(key => this.openKeys.indexOf(key) === -1);
+      const latestOpenKey = openKeys.find(
+        key => this.openKeys.indexOf(key) === -1
+      );
       if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
         this.openKeys = openKeys;
       } else {
         this.openKeys = latestOpenKey ? [latestOpenKey] : [];
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -59,7 +60,7 @@ export default {
   margin: 16px;
   width: auto;
 }
-.sider{
+.sider {
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 2;
 }

@@ -1,3 +1,3 @@
 import './antd';
 import './echarts';
-import './global.less';
+import './global.less';  

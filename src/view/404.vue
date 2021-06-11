@@ -7,7 +7,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "404"
+};
 </script>
 
 <style lang="less" scoped>
@@ -17,7 +19,7 @@ export default {};
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
-  .spin-content{
+  .spin-content {
     background: rgba(0, 0, 0, 0.05);
     font-size: 24px;
   }

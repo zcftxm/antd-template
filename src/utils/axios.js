@@ -9,37 +9,37 @@ const _axios = axios.create({
   timeout: 6000
 })
 // 请求处理
-_axios.interceptors.request.use(function(config) {
+_axios.interceptors.request.use(function (config) {
   config.headers['Content-Type'] = 'application/json;charset=UTF-8';
   window.vm.$loading.show()
   return config
-}, function(error) {
+}, function (error) {
   window.vm.$loading.hide()
   window.vm.$message.error(error)
   return Promise.reject(error)
 })
 // 响应处理
-_axios.interceptors.response.use(function(response) {
+_axios.interceptors.response.use(function (response) {
   window.vm.$loading.hide()
   return {
     data: response.data,
     status: response.status,
     message: response.statusText
   }
-}, function(error) {
+}, function (error) {
   window.vm.$loading.hide()
   window.vm.$message.error(error)
   return Promise.reject(error)
 })
 
 const $axios = {
-  get: function(config) {
+  get: function (config) {
     return _axios({
       ...config,
       method: 'get',
     })
   },
-  post: function(config) {
+  post: function (config) {
     return _axios({
       ...config,
       method: 'post',
@@ -51,7 +51,7 @@ const $axios = {
 const plugin = {
   install() {
     Object.defineProperty(Vue.prototype, '$axios', {
-      get: function() {
+      get: function () {
         return $axios
       }
     })

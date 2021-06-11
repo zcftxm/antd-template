@@ -2,7 +2,7 @@ import LoadingComponent from './index.vue';
 let $vm;
 export default {
   install(Vue) {
-    if(!$vm) {
+    if (!$vm) {
       const LoadingPlugin = Vue.extend(LoadingComponent);
       $vm = new LoadingPlugin({});
       document.body.appendChild($vm.$mount().$el);

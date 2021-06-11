@@ -7,22 +7,22 @@
 </template>
 <script>
 export default {
+  name: "UserInfo",
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     src: {
       type: String,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
 .account-avatar {
-  display: flex;
-  align-items: center;
+  .flex-align(center);
   padding: 0 20px;
   .user-name {
     display: inline-block;

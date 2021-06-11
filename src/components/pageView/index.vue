@@ -1,7 +1,8 @@
 <template>
   <div>
-    <page-header></page-header>
-    <div class="page-detail">{{detail}}</div>
+    <page-header>
+      <div class="title">{{this.$route.meta.title}}</div>
+    </page-header>
     <slot>
       <router-view></router-view>
     </slot>
@@ -9,32 +10,17 @@
 </template>
 
 <script>
-import PageHeader from "@/components/pageHeader";
+import PageHeader from "@/components/PageHeader";
 export default {
   name: "PageView",
   components: {
-    PageHeader,
-  },
-  data(){
-    return{
-      detail:this.$route.meta.title
-    }
-  },
-  watch:{
-    $route(to){
-      this.detail = to.meta.title
-    }
+    PageHeader
   }
-
 };
 </script>
 <style lang="less" scoped>
-.page-detail {
-  background: white;
-  height: 40px;
-  // line-height: 30px;
-  padding-left: 20px;
-  font-size: 20px;
+.title {
   text-align: left;
+  font-size: 18px;
 }
 </style>
