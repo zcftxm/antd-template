@@ -29,7 +29,8 @@ import {
   message,
   notification,
   list ,
-  avatar 
+  avatar ,
+  dropdown
 } from 'ant-design-vue'
 
 Vue.use(ConfigProvider)
@@ -61,6 +62,7 @@ Vue.use(list)
 Vue.use(message)
 Vue.use(notification)
 Vue.use(avatar)
+Vue.use(dropdown)
 
 Vue.prototype.$confirm = Modal.confirm
 Vue.prototype.$message = message
