@@ -21,7 +21,7 @@
         <a-icon type="alipay-circle" :style="{ fontSize: '20px' }" />
       </div>
     </div>
-    <div class="flex" v-else>
+    <div class="page-flex" v-else>
       <div>
         <a-icon
           class="trigger"
@@ -95,32 +95,28 @@ export default {
   margin: 16px;
   flex-shrink: 0;
 }
-.flex {
+.page-flex {
+  .flex-auto(space-between);
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 8%);
 }
 .page-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .flex-auto(space-between);
   background: #001529;
   .account-avatar {
-    display: flex;
-    align-items: center;
+    .flex-align('center');
     padding: 0 20px;
     color: white;
   }
 }
 .page-nav__left {
   display: flex;
-  align-items: center;
+  .flex-align(center);
   flex: 1 1 calc(~"100vw - 220px");
   width: calc(~"100vw - 220px");
 }
 .ant-menu.ant-menu-horizontal {
+  .flex();
   flex: 1 1 calc(~"100vw - 320px");
   width: calc(~"100vw - 320px");
 }
@@ -133,8 +129,7 @@ export default {
   margin-left: 20px;
 }
 .account-avatar {
-  display: flex;
-  align-items: center;
+  .flex-align(center);
   padding: 0 20px;
   .user-name {
     display: inline-block;

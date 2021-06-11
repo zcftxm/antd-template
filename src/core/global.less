@@ -2,7 +2,7 @@
 
 
 
-/*----------居中---------*/
+/*----------垂直居中---------*/
 .center(@W,@H) {
   position: absolute;
   top: 50%;
@@ -29,10 +29,10 @@
 .flex(){
   display:flex;
 }
-.flex-auto{
+.flex-auto(@justify:center, @align:center){
   .flex();
-  justify-content: center;
-  align-items: center;
+  justify-content: @justify;
+  align-items:  @align;
 }
 .flex-justify(@justify) {
   .flex();

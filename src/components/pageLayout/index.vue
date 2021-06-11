@@ -1,19 +1,19 @@
 <template>
   <a-layout style="min-height: 100vh">
+    <div v-if="device == 'mobile'">
       <a-drawer
-        v-if="device == 'mobile'"
         placement="left"
         wrapClassName="drawer-sider"
         :closable="false"
         :visible="collapsed"
-        :destroyOnClose="true"
         @close="drawerClose"
       >
-        <side-bar @select="menuSelect"></side-bar>
+        <side-bar :menu="routes" @select="menuSelect"></side-bar>
       </a-drawer>
-      <side-bar v-else-if="isSideBar" :collapsed="collapsed"></side-bar>
+    </div>
+    <side-bar v-else-if="menuType == 'sideBar'" :menu="routes" :collapsed="collapsed" mode="inline" :collapsible="true"></side-bar>
     <a-layout>
-      <page-header @toggle="toggleSidebar"></page-header>
+      <page-nav @toggle="toggleSidebar" :menu="routes" :menuType="menuType" :device="device" :collapsed="collapsed" ></page-nav>
       <a-layout-content>
         <router-view></router-view>
       </a-layout-content>
@@ -25,47 +25,67 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import PageHeader from '@/components/pageHeader';
-// import PageView from '@/components/pageView';
-import SideBar from '@/components/sideBar';
+import { mapState } from "vuex";
+import PageNav from "@/components/pageNav";
+import SideBar from "@/components/sideBar";
 export default {
-  name: 'pageLayout',
+  name: "pageLayout",
   data() {
     return {
-      isSideBar: true,
       collapsed: false
     }
+  },
+  async mounted() {
+    // 请求示例
+     let data = await this.$axios.get({
+      url: "web/api/news/init"
+    })
+    console.log(data)
   },
   computed: {
     ...mapState({
       device: state => state.system.device,
-    })
+      menuType: state => state.system.menuType,
+      routes: state => state.permission.addRoutes
+    }),
   },
   watch: {
-    device: function(val) {
-      if(val == 'tablet') {
-        this.collapsed = true
+    device: function (val) {
+      // 监听设备变化  改变菜单收缩或放开
+      if (val == "tablet") {
+        this.collapsed = true;
       } else {
-        this.collapsed = false
+        this.collapsed = false;
       }
-    }
+    },
   },
   methods: {
     menuSelect() {
-      this.drawerClose()
+      this.drawerClose();
     },
     toggleSidebar() {
-      this.collapsed = !this.collapsed
+      this.collapsed = !this.collapsed;
     },
     drawerClose() {
-      this.collapsed = false
-    }
+      this.collapsed = false;
+    },
   },
   components: {
-    PageHeader, SideBar
+    PageNav,
+    SideBar,
+  },
+};
+</script>
+<style lang="less" scoped>
+.ant-layout{
+  min-width:300px;
+}
+.ant-drawer.drawer-sider {
+  /deep/.ant-drawer-body {
+    padding: 0;
   }
 }
-</script>
+
+</style>
 
 

@@ -27,17 +27,16 @@
 <script>
 import { mapState } from "vuex";
 import PageNav from "@/components/pageNav";
-// import PageView from '@/components/pageView';
 import SideBar from "@/components/sideBar";
 export default {
   name: "home",
   data() {
     return {
-      isSideBar: true,
       collapsed: false
     }
   },
   async mounted() {
+    // 请求示例
      let data = await this.$axios.get({
       url: "web/api/news/init"
     })

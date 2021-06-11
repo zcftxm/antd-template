@@ -5,7 +5,6 @@ import router from './router';
 import './utils/axios';
 import draggable from 'vuedraggable';
 import App from './App.vue';
-import './core/global.less';
 import './router/permission';
 import loading from '@/components/Loading';
 Vue.component('draggable', draggable)

@@ -2,41 +2,40 @@
 const baseRoutes = [{
   path: '/',
   redirect: '/home'
-},{
+}, {
   path: '/home',
   name: 'home',
   component: () => import('@/view/home'),
-  meta:{
-    title:'项目已'
+  meta: {
+    title: '项目已'
   },
   children: [
     {
       path: '/home/r',
       name: 'homer',
       component: () => import('@/view/homer'),
-      meta:{
-        title:'项目2'
+      meta: {
+        title: '项目2'
       },
       children: [
         {
           path: '/home/s',
           name: 'homers',
           component: () => import('@/view/homers'),
-          meta:{
-            title:'项目3'
+          meta: {
+            title: '项目3'
           },
         },
       ]
     }
   ]
 },{
-  path: '*',
-  name: 'homerss',
+  path: '/404',
+  name: '404',
   component: () => import('@/view/404'),
-  meta:{
-    title:'项目3s'
-  },
-}
-]
+  meta: {
+    title: '项目3s'
+  }
+}]
 
 export default baseRoutes

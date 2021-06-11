@@ -46,12 +46,11 @@ export default {
 </script>
 <style lang="less" scoped>
 .page-header {
+  .flex-justify(center);
+  .flex-direction(column);
   background: white;
   height: 70px;
   padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   .ant-breadcrumb {
     font-size: 16px;
     text-align: left;

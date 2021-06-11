@@ -1,7 +1,7 @@
 const system = {
   state: {
     device: 'desktop',  
-    menuType: 'topMenu'  // topMenu || sideBar   控制横竖菜单
+    menuType: 'sideBar'  // topMenu || sideBar   控制横竖菜单
   },
   mutations: {
     CHANGE_DEVIDE: (state, device) => {
