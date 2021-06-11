@@ -6,13 +6,14 @@
     :collapsible="true"
     :trigger="null"
   >
-    <div class="logo"></div>
+    <logo :image='src' class="sideLogo"/>
     <Menu :menu="menu" :collapsed="collapsed"></Menu>
   </a-layout-sider>
 </template>
 
 <script>
 import Menu from '@/components/Menu';
+import logo from "@/components/logo";
 export default {
   name: "SideBar",
   props: {
@@ -31,9 +32,10 @@ export default {
     return{
       rootSubmenuKeys: ['sub1', 'sub2', 'sub3'],
       openKeys: [],
+      src: require("../../assets/logo.png"),
     }
   },
-  components: { Menu },
+  components: { Menu,logo },
   methods: {
     onSelect() {
       this.$emit("select");
@@ -51,10 +53,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.logo {
+.sideLogo {
   height: 32px;
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
+  width: auto;
 }
 .sider{
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);

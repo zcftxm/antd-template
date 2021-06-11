@@ -7,8 +7,7 @@
 </template>
 
 <script>
-export default {
-};
+export default {};
 </script>
 
 <style lang="less" scoped>
@@ -19,12 +18,9 @@ export default {
   background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   .spin-content{
-      background: rgba(0, 0, 0, 0.05);
-      font-size: 24px;
+    background: rgba(0, 0, 0, 0.05);
+    font-size: 24px;
   }
-  //   margin-bottom: 20px;
-  //   padding: 30px 50px;
-  //   margin: 20px 0;
 }
 </style>
 

@@ -5,7 +5,7 @@
         <router-link :to="item.path">{{ item.name }}</router-link>
       </a-breadcrumb-item>
     </a-breadcrumb>
-    <div class="page-detail"><slot></slot>{{ detail }}</div>
+    <div class="page-detail"><slot></slot></div>
   </div>
 </template>
 
@@ -15,32 +15,24 @@ export default {
   data() {
     return {
       titleList: [],
-      detail: ""
     };
   },
   watch: {
-    $route(to) {
-      let list = [];
-      this.detail = to.meta.title;
-      to.matched.forEach((item) => {
-        let obj = {};
-        obj.name = item.meta.title;
-        obj.path = item.path;
-        list.push(obj);
-      });
-      this.titleList = list;
+    $route: {
+      handler(to) {
+        // let list = [];
+        this.titleList = to.matched.map((item) => {
+          let obj = {};
+          obj.name = item.meta.title;
+          obj.path = item.path;
+          return obj
+        });
+        // this.titleList = list;
+      },
+      immediate: true
     },
   },
   mounted() {
-    let list =[]
-    this.detail = this.$route.meta.title
-    this.$route.matched.forEach(item => {
-      let obj = {}
-      obj.name = item.meta.title
-      obj.path = item.path
-      list.push(obj)
-    });
-    this.titleList = list
   },
 };
 </script>
@@ -49,14 +41,10 @@ export default {
   .flex-justify(center);
   .flex-direction(column);
   background: white;
-  height: 70px;
+  height: 40px;
   padding-left: 20px;
   .ant-breadcrumb {
     font-size: 16px;
-    text-align: left;
-  }
-  .page-detail {
-    font-size: 24px;
     text-align: left;
   }
 }
