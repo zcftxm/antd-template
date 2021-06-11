@@ -3,7 +3,7 @@ export const routes = [
     {
         path: '/test',
         name: 'test',
-        component: 'home',
+        component: 'pageLayout',
         hideChildrenInMenu: false,
         meta: {
             title: 'test'
@@ -12,7 +12,7 @@ export const routes = [
             {
                 path: '/test/1',
                 name: 'test1',
-                component: 'homer',
+                component: 'testOne',
                 hideChildrenInMenu: false,
                 meta: {
                     title: 'test1'
@@ -21,7 +21,7 @@ export const routes = [
                     {
                         path: '/test/2',
                         name: 'test2',
-                        component: 'homers',
+                        component: 'testTwo',
                         hideChildrenInMenu: false,
                         meta: {
                             title: 'test2'
@@ -30,7 +30,7 @@ export const routes = [
                     {
                         path: '/test/3',
                         name: 'test3',
-                        component: 'homers',
+                        component: 'testTwo',
                         hideChildrenInMenu: false,
                         meta: {
                             title: 'test3'
@@ -42,7 +42,7 @@ export const routes = [
     }, {
         path: '/test4',
         name: 'test4',
-        component: 'home',
+        component: 'pageLayout',
         hideChildrenInMenu: false,
         meta: {
             title: 'test4'
@@ -51,7 +51,7 @@ export const routes = [
     {
         path: '/test5',
         name: 'test5',
-        component: 'home',
+        component: 'pageLayout',
         hideChildrenInMenu: false,
         meta: {
             title: 'test5'
@@ -60,7 +60,7 @@ export const routes = [
             {
                 path: '/test/6',
                 name: 'test6',
-                component: 'homer',
+                component: 'testOne',
                 hideChildrenInMenu: false,
                 meta: {
                     title: 'test6'
@@ -69,7 +69,7 @@ export const routes = [
             {
                 path: '/test/7',
                 name: 'test7',
-                component: 'homer',
+                component: 'testOne',
                 hideChildrenInMenu: false,
                 meta: {
                     title: 'test7'

@@ -3,19 +3,19 @@
     <div class="wrapper">
       <a-spin size="large" tip="Loading..."></a-spin>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script>
 export default {
-  name: 'Loading',
+  name: "Loading",
   props: {
     show: {
       type: Boolean,
       default: true
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -39,7 +39,6 @@ export default {
     background: rgba(0, 0, 0, 0.1);
   }
 }
-
 </style>
 
 

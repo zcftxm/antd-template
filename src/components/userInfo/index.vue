@@ -41,10 +41,11 @@
 </template>
 <script>
 export default {
+  name: "UserInfo",
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     src: {
       type: String,

@@ -26,38 +26,38 @@
 
 <script>
 import { mapState } from "vuex";
-import PageNav from "@/components/pageNav";
-import SideBar from "@/components/sideBar";
+import PageNav from "@/components/PageNav";
+import SideBar from "@/components/SideBar";
 export default {
-  name: "home",
+  name: "PageLayout",
   data() {
     return {
       collapsed: false
-    }
+    };
   },
   async mounted() {
     // 请求示例
-     let data = await this.$axios.get({
+    let data = await this.$axios.get({
       url: "web/api/news/init"
-    })
-    console.log(data)
+    });
+    console.log(data);
   },
   computed: {
     ...mapState({
       device: state => state.system.device,
       menuType: state => state.system.menuType,
       routes: state => state.permission.addRoutes
-    }),
+    })
   },
   watch: {
-    device: function (val) {
+    device: function(val) {
       // 监听设备变化  改变菜单收缩或放开
       if (val == "tablet") {
         this.collapsed = true;
       } else {
         this.collapsed = false;
       }
-    },
+    }
   },
   methods: {
     menuSelect() {
@@ -68,24 +68,23 @@ export default {
     },
     drawerClose() {
       this.collapsed = false;
-    },
+    }
   },
   components: {
     PageNav,
-    SideBar,
-  },
+    SideBar
+  }
 };
 </script>
 <style lang="less" scoped>
-.ant-layout{
-  min-width:300px;
+.ant-layout {
+  min-width: 300px;
 }
 .ant-drawer.drawer-sider {
   /deep/.ant-drawer-body {
     padding: 0;
   }
 }
-
 </style>
 
 
